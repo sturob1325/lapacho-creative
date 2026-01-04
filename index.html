@@ -29,9 +29,16 @@
         /* TECH TAGS */
         .tech-tag { color: #4b5563; transition: all 0.5s ease; cursor: default; }
         .tech-tag:hover { color: #ec4899; text-shadow: 0 0 10px #ec4899; }
+
+        /* MENU HIGHLIGHT STYLE */
+        .nav-link-active { 
+            color: #ffffff !important; 
+            opacity: 1 !important;
+            font-weight: 900 !important;
+        }
     </style>
 </head>
-<body id="hero" class="selection:bg-pink-500 selection:text-white text-left">
+<body class="selection:bg-pink-500 selection:text-white text-left">
 
     <nav class="fixed w-full z-50 bg-[#080808]/95 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center overflow-visible">
@@ -65,7 +72,7 @@
         </div>
     </nav>
 
-    <header class="pt-64 pb-32 px-6">
+    <header id="hero" class="pt-64 pb-32 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <p class="mono text-pink-500 text-sm font-bold uppercase tracking-[0.3em] mb-8 t-hero-sub" data-en="// Technical Infrastructure Engineering" data-es="// Ingeniería de Infraestructura Técnica">// Technical Infrastructure Engineering</p>
             <h1 class="text-6xl md:text-9xl font-black text-white leading-none mb-12 tracking-tighter uppercase italic">
@@ -143,7 +150,6 @@
         <div class="max-w-7xl mx-auto px-6 text-left">
             <h3 class="text-5xl font-black text-white italic tracking-tighter uppercase mb-32 t-proc-title" data-en="The Blueprint" data-es="El Plan Maestro">The Blueprint</h3>
             
-                        
             <div class="grid md:grid-cols-4 gap-12 mt-16">
                 <div class="card p-12 rounded-3xl border-white/5">
                     <div class="huge-number">01</div>
@@ -219,6 +225,43 @@
     </footer>
 
     <script>
+        // REFINED SCROLL SPY
+        const observerOptions = {
+            root: null,
+            rootMargin: '-10% 0px -85% 0px', 
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('nav-link-active');
+                    });
+                    const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('nav-link-active');
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        document.querySelectorAll('header, section').forEach(section => {
+            if (section.id) observer.observe(section);
+        });
+
+        // UPDATED ONLOAD FOR INSTANT HOME HIGHLIGHT
+        window.onload = () => {
+            setLanguage('en');
+            // Force home link highlight if at top
+            if (window.scrollY < 200) {
+                const homeLink = document.querySelector('nav a[href="#hero"]');
+                if (homeLink) homeLink.classList.add('nav-link-active');
+            }
+        };
+
+        // LANGUAGE LOGIC
         function setLanguage(lang) {
             const elements = document.querySelectorAll('[data-en]');
             elements.forEach(el => {
@@ -233,8 +276,7 @@
             document.getElementById('btn-es').classList.toggle('active', lang === 'es');
         }
 
-        window.onload = () => setLanguage('en');
-
+        // FORM LOGIC
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
