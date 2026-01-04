@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAPACHO CREATIVE | Enterprise Workflow Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --lapacho-pink: #ec4899; --tech-blue: #3b82f6; }
+        body { font-family: 'Inter', sans-serif; background-color: #080808; color: #f3f4f6; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-text { background: linear-gradient(90deg, #ec4899, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* LOGO PROTECTION: 80px padding ensures the italic 'E' has total clearance */
+        .brand-text { display: inline-block !important; padding-right: 80px !important; font-style: italic; white-space: nowrap; overflow: visible; }
+        
+        .card { background: #0e0e0e; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
+        .card:hover { border-color: #ec4899; background: #121212; }
+        
+        /* PROCESS NUMBERS: Maximum Readability */
+        .huge-number { font-size: 8rem; font-weight: 900; line-height: 0.8; margin-bottom: 1.5rem; color: #151515; transition: color 0.4s ease; }
+        .card:hover .huge-number { color: #ec4899; opacity: 0.2; }
+        
+        /* LANGUAGE TOGGLE */
+        .lang-btn { cursor: pointer; transition: all 0.3s ease; opacity: 0.4; font-size: 10px; }
+        .lang-btn.active { opacity: 1; color: var(--lapacho-pink); font-weight: 900; }
+    </style>
+</head>
+<body id="hero" class="selection:bg-pink-500 selection:text-white text-left">
+
+    <nav class="fixed w-full z-50 bg-[#080808]/95 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center overflow-visible">
+            <div class="flex items-center overflow-visible">
+                <div class="grid grid-cols-2 gap-[4px] mr-5 shrink-0">
+                    <div class="w-[10px] h-[10px] bg-[#ec4899] rounded-sm shadow-[0_0_15px_#ec4899]"></div>
+                    <div class="w-[10px] h-[10px] bg-[#d946ef] rounded-sm opacity-80"></div>
+                    <div class="w-[10px] h-[10px] bg-[#8b5cf6] rounded-sm opacity-80"></div>
+                    <div class="w-[10px] h-[10px] bg-[#3b82f6] rounded-sm shadow-[0_0_15px_#3b82f6]"></div>
+                </div>
+                <a href="#hero" class="brand-text text-2xl font-black tracking-tight text-white uppercase italic">
+                    Lapacho<span class="gradient-text">Creative</span>
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-[0.2em] mono">
+                <a href="#hero" class="text-gray-400 hover:text-white transition t-nav-home" data-en="Home" data-es="Inicio">Home</a>
+                <a href="#about" class="text-gray-400 hover:text-white transition t-nav-about" data-en="About" data-es="Nosotros">About</a>
+                <a href="#services" class="text-gray-400 hover:text-white transition t-nav-services" data-en="Services" data-es="Servicios">Services</a>
+                <a href="#process" class="text-gray-400 hover:text-white transition t-nav-process" data-en="Process" data-es="Proceso">Process</a>
+                <a href="#director" class="text-gray-400 hover:text-white transition t-nav-dir" data-en="Director" data-es="Director">Director</a>
+                
+                <div class="flex items-center space-x-4 border-l border-white/10 pl-8">
+                    <span onclick="setLanguage('en')" id="btn-en" class="lang-btn active">EN</span>
+                    <span class="text-gray-800">/</span>
+                    <span onclick="setLanguage('es')" id="btn-es" class="lang-btn">ES</span>
+                </div>
+
+                <a href="#contact" class="bg-pink-600 text-white px-6 py-2 rounded-sm hover:bg-white hover:text-black transition duration-300 t-nav-btn" data-en="Contact" data-es="Contacto">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-64 pb-32 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="mono text-pink-500 text-sm font-bold uppercase tracking-[0.3em] mb-8 t-hero-sub" data-en="// Technical Infrastructure Engineering" data-es="// Ingeniería de Infraestructura Técnica">// Technical Infrastructure Engineering</p>
+            <h1 class="text-6xl md:text-9xl font-black text-white leading-none mb-12 tracking-tighter uppercase italic">
+                <span class="t-hero-1" data-en="AUTONOMOUS" data-es="LÓGICA">AUTONOMOUS</span> <br> <span class="gradient-text t-hero-2" data-en="LOGIC." data-es="AUTÓNOMA.">LOGIC.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-16 leading-relaxed t-hero-desc" data-en="We engineer custom architectural frameworks that transform manual operational friction into high-performance digital engines." data-es="Diseñamos marcos arquitectónicos personalizados que convierten la fricción operativa manual en motores digitales de alto rendimiento.">
+                We engineer custom architectural frameworks that transform manual operational friction into high-performance digital engines.
+            </p>
+            <div class="flex justify-center gap-8">
+                <a href="#contact" class="px-12 py-5 bg-white text-black font-black uppercase text-xs tracking-widest hover:bg-pink-600 hover:text-white transition shadow-xl t-hero-btn1" data-en="Initiate Audit" data-es="Iniciar Auditoría">Initiate Audit</a>
+                <a href="#services" class="px-12 py-5 border border-gray-700 text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-black transition t-hero-btn2" data-en="Capabilities" data-es="Capacidades">Capabilities</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-32 bg-[#0a0a0a] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-20 items-start">
+                <div class="text-left">
+                    <h2 class="text-sm mono text-pink-500 uppercase tracking-widest mb-6 t-about-sub" data-en="// Core_Philosophy" data-es="// Filosofía_Central">// Core_Philosophy</h2>
+                    <h3 class="text-4xl md:text-6xl font-black text-white italic uppercase tracking-tighter mb-8 leading-tight t-about-title" data-en="Architecting Efficiency for Global Enterprises." data-es="Arquitectando Eficiencia para Empresas Globales.">Architecting <br> Efficiency for <br> Global Firms.</h3>
+                </div>
+                <div class="text-gray-400 text-lg leading-relaxed space-y-8 text-left t-about-desc">
+                    <p data-en="Lapacho Creative is a specialized systems consultancy dedicated to the design and deployment of robust business logic. We don't just automate tasks; we architect the underlying technical infrastructure that allows your organization to scale without the proportional increase in administrative burden." data-es="Lapacho Creative es una consultoría de sistemas especializada dedicada al diseño y despliegue de una lógica empresarial sólida. No solo automatizamos tareas; arquitectamos la infraestructura técnica subyacente que permite que su organización escale sin el aumento proporcional en la carga administrativa.">
+                        **Lapacho Creative** is a specialized systems consultancy dedicated to the design and deployment of robust business logic. We don't just automate tasks; we architect the underlying technical infrastructure that allows your organization to scale without the proportional increase in administrative burden.
+                    </p>
+                    <p data-en="Our approach focuses on deep system interconnectivity. By bridging the gap between disparate software stacks and legacy data silos, we create a unified, high-performance operational environment tailored to the unique demands of first-world markets." data-es="Nuestro enfoque se centra en la profunda interconectividad del sistema. Al cerrar la brecha entre las pilas de software dispares y los silos de datos heredados, creamos un entorno operativo unificado y de alto rendimiento adaptado a las demandas únicas de los mercados del primer mundo.">
+                        Our approach focuses on deep system interconnectivity. By bridging the gap between disparate software stacks and legacy data silos, we create a unified, high-performance operational environment tailored to the unique demands of first-world markets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 bg-black border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-left">
+            <div class="mb-24">
+                <h2 class="text-sm mono text-pink-500 uppercase tracking-widest mb-4 t-serv-sub" data-en="/ Capabilities" data-es="/ Capacidades">/ Capabilities</h2>
+                <h3 class="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase italic t-serv-title" data-en="Systems Architecture" data-es="Arquitectura de Sistemas">Systems Architecture</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-12 card rounded-2xl">
+                    <h4 class="text-xl font-bold text-white mb-6 uppercase tracking-tight t-s1-title" data-en="Workflow Orchestration" data-es="Orquestación de Procesos">Workflow Orchestration</h4>
+                    <p class="text-gray-400 leading-relaxed t-s1-desc" data-en="Deploying custom logic layers that act as the central nervous system for your business operations." data-es="Despliegue de capas de lógica personalizada que actúan como el sistema nervioso central para sus operaciones comerciales.">Deploying custom logic layers that act as the central nervous system for your business operations.</p>
+                </div>
+                <div class="p-12 card rounded-2xl">
+                    <h4 class="text-xl font-bold text-white mb-6 uppercase tracking-tight t-s2-title" data-en="API Interconnectivity" data-es="Interconectividad API">API Interconnectivity</h4>
+                    <p class="text-gray-400 leading-relaxed t-s2-desc" data-en="Synchronizing fragmented software tools into a unified source of truth, eliminating manual data entry." data-es="Sincronización de herramientas de software fragmentadas en una fuente única de verdad, eliminando el ingreso manual de datos.">Synchronizing fragmented software tools into a unified source of truth, eliminating manual data entry.</p>
+                </div>
+                <div class="p-12 card rounded-2xl">
+                    <h4 class="text-xl font-bold text-white mb-6 uppercase tracking-tight t-s3-title" data-en="Intelligence Routing" data-es="Enrutamiento de Inteligencia">Intelligence Routing</h4>
+                    <p class="text-gray-400 leading-relaxed t-s3-desc" data-en="Advanced algorithms that automatically qualify, prioritize, and route inquiries to the correct department." data-es="Algoritmos avanzados que califican, priorizan y enrutan automáticamente las consultas al departamento correcto.">Advanced algorithms that automatically qualify, prioritize, and route inquiries to the correct department.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-40 bg-[#0a0a0a] border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-left">
+            <h2 class="text-sm mono text-gray-500 uppercase tracking-[0.4em] mb-4 t-proc-sub" data-en="/ Implementation" data-es="/ Implementación">/ Implementation</h2>
+            <h3 class="text-5xl font-black text-white italic tracking-tighter uppercase mb-32 t-proc-title" data-en="The Blueprint" data-es="El Plan Maestro">The Blueprint</h3>
+            
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="card p-12 rounded-3xl border-white/5">
+                    <div class="huge-number">01</div>
+                    <h4 class="text-2xl font-bold text-white uppercase italic mb-4 t-p1-title" data-en="Audit" data-es="Auditoría">Audit</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed t-p1-desc" data-en="Detailed analysis of operational bottlenecks and manual friction points." data-es="Análisis detallado de los cuellos de botella operativos y los puntos de fricción manuales.">Detailed analysis of operational bottlenecks and manual friction points.</p>
+                </div>
+                <div class="card p-12 rounded-3xl border-white/5">
+                    <div class="huge-number" style="opacity: 0.2">02</div>
+                    <h4 class="text-2xl font-bold text-white uppercase italic mb-4 t-p2-title" data-en="Architect" data-es="Diseñar">Architect</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed t-p2-desc" data-en="Strategic mapping of custom system logic and integration layers." data-es="Mapeo estratégico de la lógica del sistema personalizado y las capas de integración.">Strategic mapping of custom system logic and integration layers.</p>
+                </div>
+                <div class="card p-12 rounded-3xl border-white/5">
+                    <div class="huge-number" style="opacity: 0.3">03</div>
+                    <h4 class="text-2xl font-bold text-white uppercase italic mb-4 t-p3-title" data-en="Integrate" data-es="Integrar">Integrate</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed t-p3-desc" data-en="Full-stack deployment of production-ready systems into your environment." data-es="Despliegue de pila completa de sistemas listos para producción en su entorno.">Full-stack deployment of production-ready systems into your environment.</p>
+                </div>
+                <div class="card p-12 rounded-3xl border-white/5">
+                    <div class="huge-number" style="opacity: 0.4">04</div>
+                    <h4 class="text-2xl font-bold text-white uppercase italic mb-4 t-p4-title" data-en="Optimize" data-es="Optimizar">Optimize</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed t-p4-desc" data-en="Iterative refinement of system logic to drive long-term enterprise value." data-es="Refinamiento iterativo de la lógica del sistema para impulsar el valor empresarial a largo plazo.">Iterative refinement of system logic to drive long-term enterprise value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="director" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-pink-600 to-blue-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition"></div>
+                    <img src="director.png" alt="Director" class="relative rounded-2xl border border-white/10 shadow-2xl w-full h-[600px] object-cover z-10">
+                </div>
+
+                <div class="p-12 card rounded-3xl shadow-2xl text-left">
+                    <h2 class="text-sm mono text-pink-500 uppercase tracking-widest mb-6 t-dir-sub" data-en="// Systems_Director" data-es="// Director_de_Sistemas">// Systems_Director</h2>
+                    <h3 class="text-4xl font-black text-white italic uppercase tracking-tighter mb-8 leading-tight t-dir-title" data-en="Technical Mastery. Strategic Execution." data-es="Maestría Técnica. Ejecución Estratégica.">Technical Mastery. <br> Strategic Execution.</h3>
+                    <div class="space-y-6 text-gray-400 leading-relaxed text-lg t-dir-desc">
+                        <p data-en="Originally established in the United Kingdom, I lead Lapacho Creative from my permanent base in Asunción, Paraguay." data-es="Establecido originalmente en el Reino Unido, dirijo Lapacho Creative desde mi base permanente en Asunción, Paraguay.">
+                            Originally established in the **United Kingdom**, I lead Lapacho Creative from my permanent base in **Asunción, Paraguay**.
+                        </p>
+                        <p data-en="We serve as a specialized technical partner for enterprises, combining UK professional standards with the operational advantage of East Coast timezone alignment." data-es="Servimos como un socio técnico especializado para empresas, combinando los estándares profesionales del Reino Unido con la ventaja operativa de la alineación de la zona horaria de la costa este.">
+                            We serve as a specialized technical partner for enterprises, combining UK professional standards with the operational advantage of East Coast timezone alignment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-40 bg-[#0a0a0a]">
+        <div class="max-w-4xl mx-auto px-6 text-left">
+            <h2 class="text-5xl md:text-6xl font-black text-white italic uppercase mb-8 tracking-tighter t-form-title" data-en="Initiate_Audit" data-es="Iniciar_Auditoría">Initiate_Audit</h2>
+            <form id="contactForm" class="bg-black p-16 border border-white/10 rounded-3xl shadow-2xl space-y-12">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-4">
+                        <label class="mono text-[10px] text-gray-500 uppercase font-bold tracking-[0.3em] t-form-name" data-en="Full Name / Firm" data-es="Nombre Completo / Empresa">Full Name / Firm</label>
+                        <input type="text" id="name" placeholder="..." class="w-full bg-transparent border-b border-gray-800 py-4 text-white focus:border-pink-500 focus:outline-none transition font-bold" required>
+                    </div>
+                    <div class="space-y-4">
+                        <label class="mono text-[10px] text-gray-500 uppercase font-bold tracking-[0.3em] t-form-email" data-en="Corporate Email" data-es="Correo Corporativo">Corporate Email</label>
+                        <input type="email" id="email" placeholder="..." class="w-full bg-transparent border-b border-gray-800 py-4 text-white focus:border-pink-500 focus:outline-none transition font-bold" required>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <label class="mono text-[10px] text-gray-500 uppercase font-bold tracking-[0.3em] t-form-req" data-en="Technical Challenge" data-es="Desafío Técnico">Technical Challenge</label>
+                    <textarea id="client_message" rows="4" placeholder="..." class="w-full bg-transparent border-b border-gray-800 py-4 text-white focus:border-pink-500 focus:outline-none transition resize-none font-bold" required></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="w-full bg-pink-600 text-white py-7 rounded-lg font-black uppercase text-xs tracking-[0.5em] hover:bg-white hover:text-black transition duration-500 t-form-btn" data-en="Run Technical Audit" data-es="Ejecutar Auditoría Técnica">Run Technical Audit</button>
+                <p id="responseMessage" class="text-center mono text-xs text-pink-500 hidden pt-8 font-bold animate-pulse tracking-widest uppercase"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-24 border-t border-white/5 text-center opacity-40 bg-black">
+        <p class="mono text-[10px] uppercase tracking-[0.6em] t-footer" data-en="&copy; 2026 Lapacho Creative // Asuncion, PY // High-End Systems Architecture" data-es="&copy; 2026 Lapacho Creative // Asunción, PY // Arquitectura de Sistemas de Alta Gama">&copy; 2026 Lapacho Creative // Asuncion, PY // High-End Systems Architecture</p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (el.tagName === 'P' || el.tagName === 'DIV') {
+                    el.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                } else {
+                    el.innerText = text;
+                }
+            });
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const responseDiv = document.getElementById('responseMessage');
+            btn.innerText = 'STATUS: ANALYZING_INPUT...';
+            btn.disabled = true;
+
+            const data = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                client_message: document.getElementById('client_message').value
+            };
+
+            try {
+                const webhookUrl = 'https://lapachocreative.app.n8n.cloud/webhook-test/6f97675f-be7a-46b4-aa83-0a406c7dd076';
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                responseDiv.innerText = 'SUCCESS: AUDIT ENGINE TRIGGERED.';
+                responseDiv.classList.remove('hidden');
+                btn.innerText = 'Analysis Complete';
+            } catch (error) {
+                btn.innerText = 'Error';
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
