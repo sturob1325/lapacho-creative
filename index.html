@@ -308,7 +308,7 @@
             btn.innerText = 'STATUS: ANALYZING...';
             btn.disabled = true;
             try {
-                await fetch('https://lapachocreative.app.n8n.cloud/webhook-test/6f97675f-be7a-46b4-aa83-0a406c7dd076', {
+                await fetch('https://lapachocreative.app.n8n.cloud/webhook/contact-form', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name: document.getElementById('name').value, email: document.getElementById('email').value, msg: document.getElementById('client_message').value })
@@ -324,3 +324,4 @@
     </script>
 </body>
 </html>
+
